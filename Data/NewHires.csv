@@ -1,1 +1,13 @@
-
+FirstName,LastName,SamAccountName,UserPrincipalName,DisplayName,Password,Department,Title,OfficePhone,OU,City,Country,Description
+John,Carter,jcarter,jcarter@danotech.local,John Carter,ChangeMe123!,Sales,Sales Representative,555-1409,"OU=Sales,OU=Employees,DC=danotech,DC=local","Chicago, IL",US,Bulk import test account (John Carter)
+Dejah,Thoris,dthoris,dthoris@danotech.local,Dejah Thoris,ChangeMe123!,Finance,Financial Analyst,555-5012,"OU=Finance,OU=Employees,DC=danotech,DC=local",Toronto,CA,Bulk import test account (Dejah Thoris)
+Tars,Tarkas,ttarkas,ttarkas@danotech.local,Tars Tarkas,ChangeMe123!,Engineering,Software Engineer,555-3286,"OU=Engineering,OU=Employees,DC=danotech,DC=local",Manchester,UK,Bulk import test account (Tars Tarkas)
+Sola,Thark,sthark,sthark@danotech.local,Sola Thark,ChangeMe123!,Sales,Sales Representative,555-9935,"OU=Sales,OU=Employees,DC=danotech,DC=local",Madrid,ES,Bulk import test account (Sola Thark)
+Sab,Than,sthan,sthan@danotech.local,Sab Than,ChangeMe123!,Sales,Sales Representative,555-7912,"OU=Sales,OU=Employees,DC=danotech,DC=local",Paris,FR,Bulk import test account (Sab Than)
+Lionel,Messi,lmessi,lmessi@danotech.local,Lionel Messi,ChangeMe123!,Sales,Sales Representative,555-1488,"OU=Sales,OU=Employees,DC=danotech,DC=local",Munich,DE,Bulk import test account (Lionel Messi)
+Cristiano,Ronaldo,cronaldo,cronaldo@danotech.local,Cristiano Ronaldo,ChangeMe123!,Sales,Sales Representative,555-4582,"OU=Sales,OU=Employees,DC=danotech,DC=local",Sydney,AU,Bulk import test account (Cristiano Ronaldo)
+Kylian,Mbappe,kmbappe,kmbappe@danotech.local,Kylian Mbappe,ChangeMe123!,Engineering,Software Engineer,555-9279,"OU=Engineering,OU=Employees,DC=danotech,DC=local",Dublin,IE,Bulk import test account (Kylian Mbappe)
+Erling,Haaland,ehaaland,ehaaland@danotech.local,Erling Haaland,ChangeMe123!,HR,HR Coordinator,555-1434,"OU=HR,OU=Employees,DC=danotech,DC=local",Lisbon,PT,Bulk import test account (Erling Haaland)
+Neymar,Junior,njunior,njunior@danotech.local,Neymar Junior,ChangeMe123!,HR,HR Coordinator,555-4257,"OU=HR,OU=Employees,DC=danotech,DC=local",Milan,IT,Bulk import test account (Neymar Junior)
+Bruno,Fernandes,bfernandes,bfernandes@danotech.local,Bruno Fernandes,ChangeMe123!,IT,IT Administrator,555-4536,"OU=IT,OU=Employees,DC=danotech,DC=local",Lisbon,PT
+Michael,Olise,molise,molise@danotech.local,Michael Olise,ChangeMe123!,IT,IT Administrator,555-4586,"OU=IT,OU=Employees,DC=danotech,DC=local",Munchen,GR
