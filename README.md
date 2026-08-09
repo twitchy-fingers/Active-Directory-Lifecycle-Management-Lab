@@ -32,17 +32,17 @@ This project simulates a full **identity and access management (IAM) lifecycle**
 ### 1. Joiner (Onboarding)
 New hires are provisioned from a simulated HR feed (CSV) via PowerShell. Accounts are created in the correct department OU, added to the corresponding role-based security group, and forced to reset their password on first login. On sync, the account automatically inherits baseline Conditional Access policies (MFA) in the cloud — no manual cloud-side step required.
 
-`/scripts/joiner.ps1`
+`/Scripts/joiner.ps1`
 
 ### 2. Mover (Role/Department Change)
 Simulates an internal transfer. The script explicitly removes the old department's group membership before adding the new one, and relocates the AD object to the new OU. This directly targets **privilege creep** — the most common real-world audit finding in access reviews. The next scheduled Access Review re-validates the new entitlement in the cloud.
 
-`/scripts/mover.ps1`
+`/Scripts/mover.ps1`
 
 ### 3. Leaver (Offboarding)
 Disables the account, strips all group memberships, resets the password to a random value, and moves the object to a Disabled Users OU for retention before eventual deletion. A companion script forces revocation of active cloud sessions via Microsoft Graph — addressing the gap between **account disablement** and **active session invalidation**, which are separate controls.
 
-`/scripts/leaver.ps1` and `/scripts/revoke-sessions.ps1`
+`/Scripts/leaver.ps1` and `/Scripts/revoke-sessions.ps1`
 
 ---
 
