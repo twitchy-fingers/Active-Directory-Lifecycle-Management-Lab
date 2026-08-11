@@ -3,7 +3,7 @@ Joiner-Mover-Leaver Automation, and Compliance-Mapped Access Control
 
 Overview
 
-This project simulates a full **identity and access management (IAM) lifecycle** — from new hire provisioning through role changes to offboarding — using a hybrid Active Directory environment. It was built to demonstrate practical IAM analyst skills: access control design, least-privilege enforcement, automation, audit logging, and compliance mapping against NIST 800-53 and ISO 27001.
+This project simulates a full **identity and access management (IAM) lifecycle** — from new hire provisioning through role changes to offboarding — using an Active Directory environment. It was built to demonstrate practical IAM analyst skills: access control design, least-privilege enforcement, automation, audit logging, and compliance mapping against NIST 800-53 and ISO 27001.
 
 **Why this project exists:** Joiner-Mover-Leaver (JML) is the single most common source of access-related risk in real organizations — access granted late, access never removed on role change ("privilege creep"), and access that lingers after termination. This lab builds and tests controls against each of those failure points.
 
