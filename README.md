@@ -19,12 +19,6 @@ This project simulates a full **identity and access management (IAM) lifecycle**
 - Role-based security groups following the **AGDLP** pattern (Account → Global Group → Domain Local Group → Permission)
 - Group Policy for password/lockout enforcement
 
-**Cloud components:**
-- Microsoft Entra ID (Microsoft 365 Developer tenant, P2 licensing)
-- Conditional Access policies (MFA, device compliance, legacy auth blocking)
-- Privileged Identity Management (PIM) for just-in-time admin access
-- Access Reviews for quarterly recertification
-
 ---
 
 ## Core Workflows
@@ -35,12 +29,12 @@ New hires are provisioned from a simulated HR feed (CSV) via PowerShell. Account
 `/Scripts/joiner.ps1`
 
 ### 2. Mover (Role/Department Change)
-Simulates an internal transfer. The script explicitly removes the old department's group membership before adding the new one, and relocates the AD object to the new OU. This directly targets **privilege creep** — the most common real-world audit finding in access reviews. The next scheduled Access Review re-validates the new entitlement in the cloud.
+Simulates an internal transfer. The script explicitly removes the old department's group membership before adding the new one, and relocates the AD object to the new OU. This directly targets **privilege creep** — the most common real-world audit finding in access reviews.
 
 `/Scripts/mover.ps1`
 
 ### 3. Leaver (Offboarding)
-Disables the account, strips all group memberships, resets the password to a random value, and moves the object to a Disabled Users OU for retention before eventual deletion. A companion script forces revocation of active cloud sessions via Microsoft Graph — addressing the gap between **account disablement** and **active session invalidation**, which are separate controls.
+Disables the account, strips all group memberships, resets the password to a random value, and moves the object to a Disabled Users OU for retention before eventual deletion.
 
 `/Scripts/leaver.ps1` and `/Scripts/revoke-sessions.ps1`
 
@@ -53,7 +47,6 @@ iam-jml-lab/
 │ ├── joiner.ps1
 │ ├── mover.ps1
 │ ├── leaver.ps1
-│ └── revoke-sessions.ps1
 ├── /data
 │ └── sample-hr-feed.csv
 ├── /policies
@@ -61,7 +54,6 @@ iam-jml-lab/
 │ ├── joiner-sop.md
 │ ├── mover-sop.md
 │ ├── leaver-sop.md
-│ └── conditional-access-policy.md
 ├── /compliance
 │ ├── control-traceability-matrix.md
 │ ├── nist-800-53-mapping.md
@@ -70,15 +62,10 @@ iam-jml-lab/
 │ └── test-matrix.md
 ├── /diagrams
 │ ├── ou-group-architecture.png
-│ └── hybrid-identity-flow.png
 └── /screenshots
 ├── aduc-ou-structure.png
 ├── gpo-password-policy.png
 ├── event-viewer-4732.png
-├── entra-connect-sync-status.png
-├── conditional-access-policy-list.png
-├── pim-role-activation.png
-└── access-review-results.png
 
 ---
 
@@ -88,13 +75,11 @@ Access is granted through role-based security groups, never assigned directly to
 
 **User Account → Global Group (role, e.g. `SG-Finance-Users`) → Domain Local Group (resource permission, e.g. `SG-FileShare-Finance-RW`) → Permission on resource**
 
-Privileged accounts are structurally separated from standard user accounts (dedicated Admin Accounts OU on-prem; PIM-eligible, not standing, role assignments in the cloud), enforcing least privilege at both the identity structure and the activation-time layer.
-
 ---
 
 ## Testing
 
-A 13-case test matrix validates that provisioning, transfer, deprovisioning, and cloud access controls behave as designed — including negative test cases (e.g., a disabled leaver's credentials must fail authentication; a PIM-eligible admin without activation must be denied privileged actions).
+A 13-case test matrix validates that provisioning, transfer, deprovisioning, including negative test cases (e.g., a disabled leaver's credentials must fail authentication).
 
 Full matrix: `/test-cases/test-matrix.md`
 
@@ -102,8 +87,6 @@ Full matrix: `/test-cases/test-matrix.md`
 |---|---|
 | Leaver's old credentials used post-offboarding | Access denied |
 | Mover's old department group membership | Removed within workflow execution |
-| PIM eligible role used without activation | Action blocked |
-| Access Review denies an entitlement | Group membership auto-removed at review close |
 
 ---
 
@@ -133,9 +116,6 @@ Full mapping: `/compliance/control-traceability-matrix.md`
 |---|---|---|---|
 | Least privilege | AC-6 | A.5.18 | AGDLP group model, Admin OU separation |
 | Account disablement on termination | AC-2(3), PS-4 | A.5.18, A.6.5 | `leaver.ps1` |
-| MFA enforcement | IA-2(1), IA-2(2) | A.5.17, A.8.5 | Conditional Access policies |
-| Just-in-time privileged access | AC-6(1), AC-6(5) | A.8.2 | PIM eligible role assignments |
-| Periodic access recertification | AC-6(7), CA-7 | A.5.18, A.5.36 | Quarterly Access Reviews |
 
 A documented gap analysis identifies known control deficiencies — such as manual (rather than event-driven) leaver triggering, and ad hoc rather than scheduled log review — and their remediation paths. This is intentional: demonstrating awareness of gaps is part of the deliverable, not a shortcoming of it.
 
@@ -145,7 +125,6 @@ A documented gap analysis identifies known control deficiencies — such as manu
 
 - Design and implementation of a role-based access control model enforcing least privilege
 - Automated Joiner-Mover-Leaver workflows addressing the most common real-world access risk (privilege creep, delayed deprovisioning)
-- Hybrid on-prem/cloud identity governance (Conditional Access, PIM, Access Reviews)
 - Audit-ready documentation: SOPs, test cases, and a compliance control traceability matrix
 - Practical understanding of the distinction between technical controls (disabling an account) and administrative controls (the HR process that triggers it) — and where gaps between the two create real risk
 
