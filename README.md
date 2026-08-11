@@ -1,4 +1,4 @@
-# IAM-Lifecycle-Management-Lab
+# IAM-Lifecycle-Management-Lab (Active Directory)
 Joiner-Mover-Leaver Automation, and Compliance-Mapped Access Control
 
 Overview
