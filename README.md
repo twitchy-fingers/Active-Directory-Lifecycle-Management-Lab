@@ -1,9 +1,9 @@
 # IAM-Lifecycle-Management-Lab
-Joiner-Mover-Leaver Automation, Hybrid Identity, and Compliance-Mapped Access Control
+Joiner-Mover-Leaver Automation, and Compliance-Mapped Access Control
 
 Overview
 
-This project simulates a full **identity and access management (IAM) lifecycle** — from new hire provisioning through role changes to offboarding — using a hybrid Active Directory / Microsoft Entra ID environment. It was built to demonstrate practical IAM analyst skills: access control design, least-privilege enforcement, automation, audit logging, and compliance mapping against NIST 800-53 and ISO 27001.
+This project simulates a full **identity and access management (IAM) lifecycle** — from new hire provisioning through role changes to offboarding — using a hybrid Active Directory environment. It was built to demonstrate practical IAM analyst skills: access control design, least-privilege enforcement, automation, audit logging, and compliance mapping against NIST 800-53 and ISO 27001.
 
 **Why this project exists:** Joiner-Mover-Leaver (JML) is the single most common source of access-related risk in real organizations — access granted late, access never removed on role change ("privilege creep"), and access that lingers after termination. This lab builds and tests controls against each of those failure points.
 
@@ -11,7 +11,7 @@ This project simulates a full **identity and access management (IAM) lifecycle**
 
 ## Architecture
 
-**Environment:** Hybrid identity — on-premises Active Directory synchronized to Microsoft Entra ID via Entra Connect.
+**Environment:** On-premises Active Directory.
 
 **On-prem components:**
 - Windows Server 2022 Domain Controller (`corp.local`)
@@ -24,7 +24,7 @@ This project simulates a full **identity and access management (IAM) lifecycle**
 ## Core Workflows
 
 ### 1. Joiner (Onboarding)
-New hires are provisioned from a simulated HR feed (CSV) via PowerShell. Accounts are created in the correct department OU, added to the corresponding role-based security group, and forced to reset their password on first login. On sync, the account automatically inherits baseline Conditional Access policies (MFA) in the cloud — no manual cloud-side step required.
+New hires are provisioned from a simulated HR feed (CSV) via PowerShell. Accounts are created in the correct department OU, added to the corresponding role-based security group, and forced to reset their password on first login.
 
 `/Scripts/joiner.ps1`
 
