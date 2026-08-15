@@ -1,7 +1,9 @@
 # Access Control Policy
 
 **Document Owner:** IAM AD Lab Administrator
+
 **Last Reviewed:** 2026-08-15
+
 **Applies To:** Active Directory domain `danotech.local`
 ---
 
