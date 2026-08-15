@@ -37,28 +37,28 @@ Each test case includes the scenario, expected result, the control it validates,
 
 | Test ID | Scenario | Expected Result | Related Control | Actual Result | Pass/Fail |
 |---|---|---|---|---|---|
-| TC-10 | Standard user account audited for group memberships | Member of exactly one department role group; no privileged group membership | CTRL-09 | | |
-| TC-11 | Orphaned account check | No enabled accounts found with zero group memberships or no logon in 90+ days | CTRL-09 | | |
-| TC-12 | Segregation of duties check | No single account holds both an approval-authority group and a provisioning-authority group | CTRL-09 | | |
+| TC-08 | Standard user account audited for group memberships | Member of exactly one department role group; no privileged group membership | CTRL-09 | | |
+| TC-09 | Orphaned account check | No enabled accounts found with zero group memberships or no logon in 90+ days | CTRL-09 | | |
+| TC-10 | Segregation of duties check | No single account holds both an approval-authority group and a provisioning-authority group | CTRL-09 | | |
 
 ## 5. NTFS and Share Permission Test Cases
 
 | Test ID | Scenario | Expected Result | Related Control | Actual Result | Pass/Fail |
 |---|---|---|---|---|---|
-| TC-13 | Authorized department user accesses their department's file share | Read/write succeeds per assigned role | CTRL-10 | | |
-| TC-14 | Share permission set to Full Control, NTFS permission set to Read Only, authorized group user attempts write | Write denied — NTFS governs as the more restrictive permission | CTRL-12 | | |
-| TC-15 | Unauthorized user (different department) attempts to access a department share | Access denied | CTRL-10 | | |
-| TC-16 | Default "Everyone"/"Users" permissions checked on department folder | Confirmed absent from Security tab | CTRL-13 | | |
-| TC-17 | `SG-IT-Admins` member accesses Finance department share | Full Control confirmed via Effective Access tool | CTRL-14 | | |
-| TC-18 | `SG-IT-Admins` member accesses Sales department share | Full Control confirmed (overrides department's Read & Execute for this group only) | CTRL-14 | | |
-| TC-19 | Non-admin Finance user's access checked after IT overlay was added | Still exactly Modify; access not unintentionally broadened | CTRL-14 | | |
+| TC-11 | Authorized department user accesses their department's file share | Read/write succeeds per assigned role | CTRL-10 | | |
+| TC-12 | Share permission set to Full Control, NTFS permission set to Read Only, authorized group user attempts write | Write denied — NTFS governs as the more restrictive permission | CTRL-12 | | |
+| TC-13 | Unauthorized user (different department) attempts to access a department share | Access denied | CTRL-10 | | |
+| TC-14 | Default "Everyone"/"Users" permissions checked on department folder | Confirmed absent from Security tab | CTRL-13 | | |
+| TC-15 | `SG-IT-Admins` member accesses Finance department share | Full Control confirmed via Effective Access tool | CTRL-14 | | |
+| TC-16 | `SG-IT-Admins` member accesses Sales department share | Full Control confirmed (overrides department's Read & Execute for this group only) | CTRL-14 | | |
+| TC-17 | Non-admin Finance user's access checked after IT overlay was added | Still exactly Modify; access not unintentionally broadened | CTRL-14 | | |
 
 ## 8. Audit and Logging Test Cases
 
 | Test ID | Scenario | Expected Result | Related Control | Actual Result | Pass/Fail |
 |---|---|---|---|---|---|
-| TC-28 | Joiner action executed | Event ID 4720 and 4732 present in Security Event Log with correct timestamp | CTRL-25 | | |
-| TC-29 | Leaver action executed | Event ID 4725 present; Entra ID audit log shows "Update user" and "Remove member from group" entries | CTRL-25, CTRL-26 | | |
+| TC-18 | Joiner action executed | Event ID 4720 and 4732 present in Security Event Log with correct timestamp | CTRL-25 | | |
+| TC-19 | Leaver action executed | Event ID 4725 present; Entra ID audit log shows "Update user" and "Remove member from group" entries | CTRL-25, CTRL-26 | | |
 
 ---
 
@@ -66,7 +66,7 @@ Each test case includes the scenario, expected result, the control it validates,
 
 | Test Run Date | Executed By | Total Tests | Passed | Failed | Notes |
 |---|---|---|---|---|---|
-| | | 30 | | | |
+| | | 19 | | | |
 
 ---
 
