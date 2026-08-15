@@ -167,8 +167,8 @@ Covers the Active Directory environment (`danotech.local`), associated Group Pol
 | AC-2(2) | No automated expiration for temporary/emergency accounts on-prem | Add scheduled task to disable accounts past a defined expiration date |
 | PS-4 | Leaver process is manually triggered rather than event-driven from an HR system | Future integration via SCIM provisioning from an HRIS (e.g., Workday) |
 | AU-6 | Log review is manual/ad hoc rather than scheduled | Forward logs to a SIEM (Wazuh/Splunk) with scheduled weekly reporting and alerting |
-| AC-6(7) | Standard 90-day review cadence used uniformly | Consider monthly review cadence specifically for privileged (PIM-eligible) roles |
-| AC-6(1) | No on-prem equivalent of just-in-time privileged activation | Documented as an inherent limitation of on-prem AD; addressed at the cloud layer via PIM |
+| AC-6(7) | Standard 90-day review cadence used uniformly |
+| AC-6(1) | No on-prem equivalent of just-in-time privileged activation | Documented as an inherent limitation of on-prem AD |
 
 ## 9. Related Documents
 
