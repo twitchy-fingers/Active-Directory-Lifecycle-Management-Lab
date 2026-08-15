@@ -5,6 +5,7 @@
 **Last Reviewed:** 2026-08-15
 
 **Applies To:** Active Directory domain `danotech.local`
+
 ---
 
 ## 1. Purpose
