@@ -14,7 +14,7 @@ This project simulates a full **identity and access management (IAM) lifecycle**
 **Environment:** On-premises Active Directory.
 
 **On-prem components:**
-- Windows Server 2022 Domain Controller (`corp.local`)
+- Windows Server 2022 Domain Controller (`danotech.local`)
 - OU structure by department, with dedicated OUs for Disabled Users, Admin Accounts, and Service Accounts
 - Role-based security groups following the **AGDLP** pattern (Account → Global Group → Domain Local Group → Permission)
 - Group Policy for password/lockout enforcement
